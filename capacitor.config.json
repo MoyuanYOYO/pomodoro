@@ -1,0 +1,23 @@
+{
+  "appId": "com.pomodoro.app",
+  "appName": "番茄钟",
+  "webDir": ".",
+  "bundledWebRuntime": false,
+  "android": {
+    "allowMixedContent": false,
+    "backgroundColor": "#FAF8F5"
+  },
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "LocalNotifications": {
+      "smallIcon": "ic_stat_icon",
+      "iconColor": "#FF6B5A"
+    },
+    "SplashScreen": {
+      "backgroundColor": "#FAF8F5",
+      "showSpinner": false
+    }
+  }
+}

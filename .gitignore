@@ -1,0 +1,39 @@
+# 依赖与构建产物
+node_modules/
+release/
+dist/
+out/
+.serve/
+coverage/
+
+# 原生工程（由 cap add android / ios 生成）
+android/
+ios/
+
+# 验证产物：截图与临时浏览器配置（含会话数据，切勿提交）
+.shots/
+.shots/.chrome-profile/
+.shots/.chrome-diag/
+
+# 本地环境变量与私密配置
+.env
+.env.*
+!.env.example
+*.local
+
+# 日志
+*.log
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 系统
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+*.swo

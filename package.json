@@ -1,0 +1,83 @@
+{
+  "name": "pomodoro",
+  "productName": "Pomodoro",
+  "version": "1.0.0",
+  "description": "极简番茄钟 —— Windows 桌面端 + Android PWA，一套代码两端运行",
+  "keywords": [
+    "pomodoro",
+    "番茄钟",
+    "timer",
+    "productivity",
+    "focus",
+    "pwa",
+    "electron",
+    "offline-first"
+  ],
+  "main": "desktop/main.js",
+  "author": "Moyuan <58379817+MoyuanYOYO@users.noreply.github.com>",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MoyuanYOYO/pomodoro.git"
+  },
+  "homepage": "https://github.com/MoyuanYOYO/pomodoro#readme",
+  "bugs": {
+    "url": "https://github.com/MoyuanYOYO/pomodoro/issues"
+  },
+  "scripts": {
+    "start": "electron .",
+    "dev": "npx --yes serve . -l 5173",
+    "icons": "python tools/make-icons.py",
+    "dist": "electron-builder --win --x64",
+    "dist:portable": "electron-builder --win portable --x64",
+    "cap:add": "cap add android",
+    "cap:sync": "cap sync android",
+    "cap:open": "cap open android"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^6.2.0",
+    "@capacitor/cli": "^6.2.0",
+    "@capacitor/core": "^6.2.0",
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.pomodoro.desktop",
+    "productName": "Pomodoro",
+    "copyright": "Copyright © 2026 Pomodoro",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "index.html",
+      "styles.css",
+      "manifest.webmanifest",
+      "sw.js",
+      "js/**/*",
+      "icons/**/*",
+      "desktop/main.js",
+      "desktop/preload.js",
+      "package.json"
+    ],
+    "win": {
+      "icon": "icons/icon-512.png",
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "番茄钟"
+    },
+    "portable": {
+      "artifactName": "Pomodoro-Portable-${version}.exe"
+    }
+  }
+}
